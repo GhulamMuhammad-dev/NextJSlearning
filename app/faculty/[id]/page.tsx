@@ -11,8 +11,8 @@ type Props = {
   params: { id: string };
 };
 
-export default async function FacultyDetailPage({params}:{params:{id:string}}) {
-  const professor = professors.find((prof) => prof.id === params.id);
+export default async function FacultyDetailPage({params}:Props) {
+  const professor =  professors.find(async(prof) => {return await (prof.id === params.id)});
 
   if (!professor) return notFound();
 
